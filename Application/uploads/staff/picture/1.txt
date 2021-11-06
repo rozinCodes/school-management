@@ -1,0 +1,1988 @@
+CREATE TABLE attendence_type (
+  id number(11) ,
+  type varchar2(50) ,
+  key_value varchar2(50) ,
+  is_active varchar2(255),
+  created_at date,
+  updated_at date 
+);
+
+CREATE TABLE batch (
+  id number(11),
+  name varchar2(50),
+  description varchar2(255),
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+
+CREATE TABLE books (
+  id number(11),
+  book_title varchar2(100),
+  book_no varchar2(50),
+  isbn_no varchar2(100),
+  subject varchar2(100),
+  rack_no varchar2(100),
+  publish varchar2(100),
+  author varchar2(100),
+  qty number(11),
+  perunitcost float,
+  postdate date,
+  description varchar2(255),
+  available varchar2(10),
+  is_active varchar2(255),
+  created_at date,
+  updated_at date 
+);
+
+
+CREATE TABLE book_issues (
+  id number(11),
+  book_id number(11),
+  duereturn_date date,
+  return_date date,
+  issue_date date,
+  is_returned number(11),
+  member_id number(11),
+  is_active varchar2(10),
+  created_at date
+);
+
+CREATE TABLE categories (
+  id number(11),
+  category varchar2(100),
+  is_active varchar2(255),
+  created_at date,
+  updated_at date
+);
+
+
+
+CREATE TABLE certificates (
+  id number(11),
+  certificate_name varchar2(100),
+  certificate_text varchar2(255),
+  left_header varchar2(100),
+  center_header varchar2(100),
+  right_header varchar2(100),
+  left_footer varchar2(100),
+  right_footer varchar2(100),
+  center_footer varchar2(100),
+  background_image varchar2(100),
+  created_at date,
+  updated_at date,
+  created_for number,
+  status number,
+  header_height number(11),
+  content_height number(11),
+  footer_height number(11),
+  content_width number(11),
+  enable_student_image number,
+  enable_image_height number(11)
+);
+
+CREATE TABLE chat_connections (
+  id number(11),
+  chat_user_one number(11),
+  chat_user_two number(11),
+  ip varchar2(30),
+  time number(11),
+  created_at date,
+  updated_at date 
+);
+
+
+CREATE TABLE classes (
+  id number(11),
+  class varchar2(60),
+  is_active varchar2(255),
+  created_at date,
+  updated_at date
+);
+
+CREATE TABLE class_batches (
+  id number(11),
+  class_section_id number(11),
+  batch_id number(11),
+  description varchar2(255),
+  is_active number(11),
+  created_at date,
+  updated_at date
+);
+
+CREATE TABLE class_batch_subjects (
+  id number(11),
+  class_batch_id number(11),
+  subject_id number(11),
+  is_exam number(11),
+  credit_hours number(10),
+  description varchar(255),
+  is_active NUMBER(11),
+  created_at date,
+  updated_at date 
+);
+
+CREATE TABLE class_sections (
+  id number(11),
+  class_id number(11),
+  section_id number(11),
+  is_active varchar2(255),
+  created_at date,
+  updated_at date
+);
+
+CREATE TABLE class_teacher (
+  id number(11),
+  class_id number(11),
+  staff_id number(11),
+  section_id number(11)
+);
+
+CREATE TABLE complaint (
+  id number(11),
+  complaint_type varchar2(15),
+  source varchar2(15),
+  name varchar2(100),
+  contact varchar2(15),
+  email varchar2(200),
+  active_start_date date, /* date is changed to active_start_date*/
+  description varchar2(255),
+  action_taken varchar2(200),
+  assigned varchar2(50),
+  note varchar2(255),
+  image varchar2(100)
+);
+
+CREATE TABLE complaint_type (
+  id number(11),
+  complaint_type varchar2(100),
+  description varchar2(255),
+  created_at date
+);
+
+CREATE TABLE contents (
+  id number(11),
+  title varchar2(100),
+  type varchar2(50),
+  is_public varchar2(10),
+  class_id number(11),
+  cls_sec_id number(10),
+  content_file varchar2(250),/*file is changed to content_file*/
+  created_by number(11),
+  note varchar2(255),
+  is_active varchar2(255),
+  created_at date,
+  updated_at date,
+  active_start_date date /* date is changed to active_start_date*/
+) ;
+
+CREATE TABLE content_for (
+  id number(11),
+  role varchar2(50),
+  content_id number(11),
+  user_id number(11),
+  created_at date
+);
+
+CREATE TABLE custom_fields (
+  id number(11),
+  name varchar2(100),
+  belong_to varchar2(100),
+  type varchar2(100),
+  bs_column number(10),
+  validation number(11),
+  field_values varchar2(255),
+  show_table varchar2(100),
+  visible_on_table number(11),
+  weight number(11),
+  is_active number(11),
+  created_at date,
+  updated_at date 
+);
+
+CREATE TABLE custom_field_values (
+  id number(11),
+  belong_table_id number(11),
+  custom_field_id number(11),
+  field_value varchar2(255),
+  created_at date,
+  updated_at date
+);
+
+
+CREATE TABLE delete_chat (
+  id number(11),
+  sender_id number(11),
+  receiver_id number(11),
+  message varchar2(255),
+  sender_type number(11),
+  receiver_type number(11),
+  status number(11),
+  seen number(11),
+  created_at date
+);
+
+CREATE TABLE delete_chat (
+  id number(11),
+  sender_id number(11),
+  receiver_id number(11),
+  message varchar2(255),
+  sender_type number(11),
+  receiver_type number(11),
+  status number(11),
+  seen number(11),
+  created_at date
+);
+
+CREATE TABLE department (
+  id number(11),
+  department_name varchar2(200),
+  is_active varchar2(100)
+);
+
+CREATE TABLE disable_reason (
+  id number(11),
+  reason varchar2(255),
+  created_at date
+);
+
+CREATE TABLE dispatch_receive (
+  id number(11),
+  reference_no varchar2(50),
+  to_title varchar2(100),
+  address varchar2(500),
+  note varchar2(500),
+  from_title varchar2(200),
+  acive_start_date varchar2(20), /*date changed  to active_start_date*/
+  image varchar2(100),
+  created_at date,
+  updated_at date ,
+  type varchar2(10)
+) ;
+
+CREATE TABLE email_config (
+  id number(11),
+  email_type varchar2(100),
+  smtp_server varchar2(100),
+  smtp_port varchar2(100),
+  smtp_username varchar2(100),
+  smtp_password varchar2(100),
+  ssl_tls varchar2(100),
+  is_active varchar2(10),
+  created_at date
+);
+
+CREATE TABLE enquiry (
+  id number(11),
+  name varchar2(100),
+  contact varchar2(20),
+  address varchar2(255),
+  reference varchar2(20),
+  active_start_date date, /*date changed to active_start_date*/
+  description varchar2(500),
+  follow_up_date date,
+  note varchar(255),
+  source varchar2(50),
+  email varchar2(50),
+  assigned varchar2(100),
+  class number(11),
+  no_of_child varchar2(11),
+  status varchar2(100)
+);
+
+CREATE TABLE enquiry_type (
+  id number(11),
+  enquiry_type varchar2(100),
+  description varchar2(255)
+);
+
+CREATE TABLE events (
+  id number(11) ,
+  event_title varchar2(200) ,
+  event_description varchar2(300) ,
+  start_date date ,
+  end_date date ,
+  event_type varchar2(100) ,
+  event_color varchar2(200) ,
+  event_for varchar2(100) ,
+  role_id number(11) ,
+  is_active varchar2(100) 
+) ;
+
+CREATE TABLE exams (
+  id number(11) ,
+  name varchar2(200) ,
+  sesion_id number(11) ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_groups (
+  id number(11) ,
+  name varchar2(250) ,
+  exam_type varchar2(250) ,
+  description varchar(255) ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_group_class_batch_exams (
+  id number(11) ,
+  exam varchar2(250) ,
+  session_id number(10) ,
+  date_from date ,
+  date_to date ,
+  description varchar(255) ,
+  exam_group_id number(11) ,
+  class_batch_id number(11) ,
+  is_publish number(1) ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_group_class_batch_exam(   /*exam_group_class_batch_exam_students chaned  to exam_group_class_batch_exam */
+  id number(11) ,
+  exam_group_class_batch_exam_id number(11) ,
+  student_id number(11) ,
+  student_session_id number(11) ,
+  roll_no number(6) ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_class_exam_subjects (   /* exam_group_class_batch_exam_subjects changed  to exam_class_exam_subjects*/
+  id number(11) ,
+  exam_batch_exams_id number(11) , /*exam_group_class_batch_exams_id changedd to  exam_batch_exams_id */
+  subject_id number(10) ,
+  date_from date ,
+  time_from date ,
+  duration varchar2(50) ,
+  room_no varchar2(100) ,
+  max_marks float ,
+  min_marks float ,
+  credit_hours float,
+  date_to date ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date ,
+  class_batch_subject_id number(11) 
+) ;
+
+CREATE TABLE exam_group_connections (   /*exam_group_exam_connections changeddc to exam_group_connections*/
+  id number(11) ,
+  exam_group_id number(11) ,
+  exam_group_class_exams_id number(11) , /*exam_group_class_batch_exams_id  chaned to exam_group_class_exams_id*/
+  exam_weightage float,
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_group_exam_results (
+  id number(11) ,
+  exam_group_class_student_id number(11) , /*exam_group_class_batch_exam_student_id  changed to  exam_group_class_student_id*/
+  exam_group_class_subject_id number(11) , /* exam_group_class_batch_exam_subject_id changed to exam_group_class_subject_id*/
+  attendence varchar2(10) ,
+  get_marks float,
+  note varchar(255) ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date ,
+  exam_group_student_id number(11) 
+) ;
+
+
+CREATE TABLE exam_group_students (
+  id number(11) ,
+  exam_group_id number(11) ,
+  student_id number(11) ,
+  student_session_id number(10) ,
+  is_active number(11) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_results (
+  id number(11) ,
+  attendence varchar2(10) ,
+  exam_schedule_id number(11) ,
+  student_id number(11) ,
+  get_marks float ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE exam_schedules (
+  id number(11) ,
+  session_id number(11) ,
+  exam_id number(11) ,
+  teacher_subject_id number(11) ,
+  date_of_exam date ,
+  start_to varchar2(50) ,
+  end_from varchar2(50) ,
+  room_no varchar2(50) ,
+  full_marks number(11) ,
+  passing_marks number(11) ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+
+CREATE TABLE expenses (
+  id number(11) ,
+  exp_head_id number(11) ,
+  name varchar2(50) ,
+  invoice_no varchar2(200) ,
+  active_start_date date ,  /*date changed to active_start_date*/
+  amount float ,
+  documents varchar2(255) ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  is_deleted varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE expense_head (
+  id number(11) ,
+  exp_category varchar2(50) ,
+  description varchar(255) ,
+  is_active varchar2(255) ,
+  is_deleted varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE feecategory (
+  id number(11) ,
+  category varchar2(50) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE feemasters (
+  id number(11) ,
+  session_id number(11) ,
+  feetype_id number(11) ,
+  class_id number(11) ,
+  amount float ,
+  description varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE fees_discounts (
+  id number(11) ,
+  session_id number(11) ,
+  name varchar2(100) ,
+  code varchar2(100) ,
+  amount float ,
+  description varchar(255) ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE fees_reminder (
+  id number(11) ,
+  reminder_type varchar2(10) ,
+  day number(2) ,
+  is_active number(1) ,
+  created_at date,
+  updated_at date
+) ;
+
+CREATE TABLE feetype (
+  id number(11) ,
+  is_system number(1)  ,
+  feecategory_id number(11) ,
+  type varchar2(50) ,
+  code varchar2(100) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date ,
+  description varchar(255) 
+) ;
+
+CREATE TABLE fee_groups (
+  id number(11) ,
+  name varchar2(200) ,
+  is_system number(1)  ,
+  description varchar(255) ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE fee_groups_feetype (
+  id number(11) ,
+  fee_session_group_id number(11) ,
+  fee_groups_id number(11) ,
+  feetype_id number(11) ,
+  session_id number(11) ,
+  amount decimal(10,2) ,
+  fine_type varchar2(50),
+  due_date date ,
+  fine_percentage float,
+  fine_amount float,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE fee_receipt_no (
+  id number(11) ,
+  payment number(11) 
+) ;
+
+CREATE TABLE fee_session_groups (
+  id number(11) ,
+  fee_groups_id number(11) ,
+  session_id number(11) ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE follow_up (
+  id number(11) ,
+  enquiry_id number(11) ,
+  active_start_date date ,  /* date changed to active_start_date*/
+  next_date date ,
+  response varchar(255) ,
+  note varchar(255) ,
+  followup_by varchar2(200) 
+) ;
+
+CREATE TABLE front_cms_media_gallery (
+  id number(11) ,
+  image varchar2(300) ,
+  thumb_path varchar2(300) ,
+  dir_path varchar2(300) ,
+  img_name varchar2(300) ,
+  thumb_name varchar2(300) ,
+  created_at date,
+  file_type varchar2(100) ,
+  file_size varchar2(100) ,
+  vid_url varchar2(255) ,
+  vid_title varchar2(250) 
+) ;
+
+
+
+CREATE TABLE front_cms_menus (
+  id number(11) ,
+  menu varchar2(100) ,
+  slug varchar2(200) ,
+  description varchar2(255) ,
+  open_new_tab number(10)  ,
+  ext_url varchar2(255) ,
+  ext_url_link varchar2(255) ,
+  publish number(11)  ,
+  content_type varchar2(10),
+  is_active varchar2(10) ,
+  created_at date
+) ;
+
+
+CREATE TABLE front_cms_menu_items (
+  id number(11) ,
+  menu_id number(11) ,
+  menu varchar2(100) ,
+  page_id number(11) ,
+  parent_id number(11) ,
+  ext_url varchar2(255) ,
+  open_new_tab number(11) ,
+  ext_url_link varchar2(255) ,
+  slug varchar2(200) ,
+  weight number(11) ,
+  publish number(11)  ,
+  description varchar2(255) ,
+  is_active varchar2(10) ,
+  created_at date
+) ;
+
+CREATE TABLE front_cms_pages (
+  id number(11) ,
+  page_type varchar2(10)  ,
+  is_homepage number(1) ,
+  title varchar2(250) ,
+  url varchar2(250) ,
+  type varchar2(50) ,
+  slug varchar2(200) ,
+  meta_title varchar2(255) ,
+  meta_description varchar2(255) ,
+  meta_keyword varchar2(255) ,
+  feature_image varchar2(200) ,
+  description varchar2(255) ,
+  publish_date date ,
+  publish number(10) ,
+  sidebar number(10) ,
+  is_active varchar2(10) ,
+  created_at date
+) ;
+
+CREATE TABLE front_cms_page_contents (
+  id number(11) ,
+  page_id number(11) ,
+  content_type varchar2(50) ,
+  created_at date
+) ;
+
+CREATE TABLE front_cms_programs (
+  id number(11) ,
+  type varchar2(50) ,
+  slug varchar2(255) ,
+  url varchar2(255) ,
+  title varchar2(200) ,
+  active_start_date date ,  /*date changed to active_start_date*/
+  event_start date ,
+  event_end date ,
+  event_venue varchar2(255) ,
+  description varchar2(255) ,
+  is_active varchar2(10) ,
+  created_at date,
+  meta_title varchar2(255) ,
+  meta_description varchar2(255) ,
+  meta_keyword varchar2(255) ,
+  feature_image varchar2(255) ,
+  publish_date date ,
+  publish varchar2(10) ,
+  sidebar number(10) 
+) ;
+
+CREATE TABLE front_cms_program_photos (
+  id number(11) ,
+  program_id number(11) ,
+  media_gallery_id number(11) ,
+  created_at date
+) ;
+
+CREATE TABLE front_cms_settings (
+  id number(11) ,
+  theme varchar2(50) ,
+  is_active_rtl number(10) ,
+  is_active_front_cms number(11) ,
+  is_active_sidebar number(1) ,
+  logo varchar2(200) ,
+  contact_us_email varchar2(100) ,
+  complain_form_email varchar2(100) ,
+  sidebar_options varchar2(255) ,
+  fb_url varchar2(200) ,
+  twitter_url varchar2(200) ,
+  youtube_url varchar2(200) ,
+  google_plus varchar2(200) ,
+  instagram_url varchar2(200) ,
+  pnumbererest_url varchar2(200) ,
+  linkedin_url varchar2(200) ,
+  google_analytics varchar2(255) ,
+  footer_varchar varchar2(500) ,
+  fav_icon varchar2(250) ,
+  created_at date
+) ;
+
+
+CREATE TABLE general_calls (
+  id number(11) ,
+  name varchar2(100) ,
+  contact varchar2(12) ,
+  active_start_date date ,  /*date Changed to active_start_date*/
+  description varchar2(500) ,
+  follow_up_date date ,
+  call_dureation varchar2(50) ,
+  note varchar2(255) ,
+  call_type varchar2(20) 
+) ;
+
+CREATE TABLE grades (
+  id number(11) ,
+  exam_type varchar2(250) ,
+  name varchar2(100) ,
+  ponumber float,
+  mark_from float ,
+  mark_upto float ,
+  description varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE homework (
+  id number(11) ,
+  class_id number(11) ,
+  section_id number(11) ,
+  session_id number(10) ,
+  homework_date date ,
+  submit_date date ,
+  staff_id number(11) ,
+  subject_group_subject_id number(11) ,
+  subject_id number(11) ,
+  description varchar2(500) ,
+  create_date date ,
+  evaluation_date date ,
+  document varchar2(200) ,
+  created_by number(11) ,
+  evaluated_by number(11) 
+) ;
+
+CREATE TABLE homework_evaluation (
+  id number(11) ,
+  homework_id number(11) ,
+  student_id number(11) ,
+  student_session_id number(11) ,
+  active_start_date date ,  /*date changed to active_start_date*/
+  status varchar2(100) 
+) ;
+
+CREATE TABLE hostel (
+  id number(11) ,
+  hostel_name varchar2(100) ,
+  type varchar2(50) ,
+  address varchar(255) ,
+  numberake number(11) ,
+  description varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE hostel_rooms (
+  id number(11) ,
+  hostel_id number(11) ,
+  room_type_id number(11) ,
+  room_no varchar2(200) ,
+  no_of_bed number(11) ,
+  cost_per_bed float,
+  title varchar2(200) ,
+  description varchar(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE id_card (
+  id number(11) ,
+  title varchar2(100) ,
+  school_name varchar2(100) ,
+  school_address varchar2(500) ,
+  background varchar2(100) ,
+  logo varchar2(100) ,
+  sign_image varchar2(100) ,
+  header_color varchar2(100) ,
+  enable_admission_no number(1) ,
+  enable_student_name number(1) ,
+  enable_class number(1) ,
+  enable_fathers_name number(1) ,
+  enable_mothers_name number(1) ,
+  enable_address number(1) ,
+  enable_phone number(1) ,
+  enable_dob number(1) ,
+  enable_blood_group number(1) ,
+  status number(1) 
+) ;
+
+CREATE TABLE income (
+  id number(11) ,
+  inc_head_id varchar2(11) ,
+  name varchar2(50) ,
+  invoice_no varchar2(200) ,
+  active_start_date date , /*date changed to active_start_date*/
+  amount float ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  is_deleted varchar2(255) ,
+  created_at date,
+  updated_at date ,
+  documents varchar2(255) 
+) ;
+
+CREATE TABLE income_head (
+  id number(38),
+  income_category varchar2(255) ,
+  description varchar2(255) ,
+  is_active varchar2(255)  ,
+  is_deleted varchar2(255)  ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE item (
+  id number(11) ,
+  item_category_id number(11) ,
+  name varchar2(255) ,
+  unit varchar2(100) ,
+  item_photo varchar2(225) ,
+  description varchar(255) ,
+  created_at date,
+  updated_at date  ,
+  item_store_id number(11) ,
+  item_supplier_id number(11) ,
+  quantity number(20) ,
+  active_start_date date  /*date changed to active_start_date*/
+) ;
+
+CREATE TABLE item_category (
+  id number(38) ,
+  item_category varchar2(255) ,
+  is_active varchar2(255)  ,
+  description varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE item_issue (
+  id number ,
+  issue_type varchar2(15) ,
+  issue_to varchar2(100) ,
+  issue_by varchar2(100) ,
+  issue_date date ,
+  return_date date ,
+  item_category_id number ,
+  item_id number ,
+  quantity number(10) ,
+  note varchar(255) ,
+  is_returned number(2)  ,
+  created_at date,
+  is_active varchar2(10) 
+) ;
+
+CREATE TABLE item_stock (
+  id number ,
+  item_id number ,
+  supplier_id number ,
+  symbol varchar2(10) ,
+  store_id number ,
+  quantity number ,
+  purchase_price varchar2(100) ,
+  active_start_date date ,  /*date changed to active_start_date*/
+  attachment varchar2(250) ,
+  description varchar(255) ,
+  is_active varchar2(10) ,
+  created_at date
+) ;
+
+CREATE TABLE item_store (
+  id number ,
+  item_store varchar2(255) ,
+  code varchar2(255) ,
+  description varchar2(255) 
+) ;
+
+CREATE TABLE item_supplier (
+  id number ,
+  item_supplier varchar2(255) ,
+  phone varchar2(255) ,
+  email varchar2(255) ,
+  address varchar2(255) ,
+  contact_person_name varchar2(255) ,
+  contact_person_phone varchar2(255) ,
+  contact_person_email varchar2(255) ,
+  description varchar(255) 
+) ;
+
+CREATE TABLE languages (
+  id number ,
+  language varchar2(50) ,
+  short_code varchar2(255) ,
+  country_code varchar2(255) ,
+  is_deleted varchar2(10)  ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE leave_types (
+  id number ,
+  type varchar2(200) ,
+  is_active varchar2(50) 
+) ;
+
+CREATE TABLE libarary_members (
+  id number  ,
+  library_card_no varchar2(50) ,
+  member_type varchar2(50) ,
+  member_id number ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE logs (
+  id number ,
+  message varchar(255) ,
+  record_id number ,
+  user_id number ,
+  action varchar2(50) ,
+  ip_address varchar2(50) ,
+  platform varchar2(50) ,
+  agent varchar2(50) ,
+  time date,
+  created_at date 
+) ;
+
+CREATE TABLE messages (
+  id number ,
+  title varchar2(200) ,
+  message varchar(255) ,
+  send_mail varchar2(10) ,
+  send_sms varchar2(10) ,
+  is_group varchar2(10) ,
+  is_individual varchar2(10) ,
+  is_class number(10)  ,
+  group_list varchar(255) ,
+  user_list varchar(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE migrations (
+  version number
+) ;
+CREATE TABLE multi_class_students (
+  id number ,
+  student_id number ,
+  student_session_id number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE notification_roles (
+  id number ,
+  send_notification_id number ,
+  role_id number ,
+  is_active number ,
+  created_at date
+) ;
+
+CREATE TABLE notification_setting (
+  id number ,
+  type varchar2(100) ,
+  is_mail varchar2(10) ,
+  is_sms varchar2(10) ,
+  template varchar2(255) ,
+  variables varchar(255) ,
+  created_at date
+) ;
+
+CREATE TABLE onlineexam (
+  id number ,
+  exam varchar(255) ,
+  attempt number ,
+  exam_from date ,
+  exam_to date ,
+  time_from date,
+  time_to date ,
+  duration date ,
+  passing_percentage float  ,
+  description varchar2(255) ,
+  session_id number ,
+  publish_result number  ,
+  is_active varchar2(1) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE onlineexam_attempts (
+  id number ,
+  onlineexam_student_id number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE onlineexam_questions (
+  id number ,
+  question_id number ,
+  onlineexam_id number ,
+  session_id number ,
+  is_active varchar2(1) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE onlineexam_students (
+  id number ,
+  onlineexam_id number ,
+  student_session_id number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE onlineexam_student_results (
+  id number ,
+  onlineexam_student_id number ,
+  onlineexam_question_id number ,
+  select_option varchar2(10) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE online_admissions (
+  id number ,
+  admission_no varchar2(100) ,
+  roll_no varchar2(100) ,
+  admission_date date ,
+  firstname varchar2(100) ,
+  lastname varchar2(100) ,
+  rte varchar2(20)  ,
+  image varchar2(100) ,
+  mobileno varchar2(100) ,
+  email varchar2(100) ,
+  state varchar2(100) ,
+  city varchar2(100) ,
+  pincode varchar2(100) ,
+  religion varchar2(100) ,
+  cast varchar2(50) ,
+  dob date ,
+  gender varchar2(100) ,
+  current_address varchar(255) ,
+  permanent_address varchar(255) ,
+  category_id number ,
+  class_section_id number ,
+  route_id number ,
+  school_house_id number ,
+  blood_group varchar2(200) ,
+  vehroute_id number ,
+  hostel_room_id number ,
+  adhar_no varchar2(100) ,
+  samagra_id varchar2(100) ,
+  bank_account_no varchar2(100) ,
+  bank_name varchar2(100) ,
+  ifsc_code varchar2(100) ,
+  guardian_is varchar2(100) ,
+  father_name varchar2(100) ,
+  father_phone varchar2(100) ,
+  father_occupation varchar2(100) ,
+  mother_name varchar2(100) ,
+  mother_phone varchar2(100) ,
+  mother_occupation varchar2(100) ,
+  guardian_name varchar2(100) ,
+  guardian_relation varchar2(100) ,
+  guardian_phone varchar2(100) ,
+  guardian_occupation varchar2(150) ,
+  guardian_address varchar(255) ,
+  guardian_email varchar2(100) ,
+  father_pic varchar2(200) ,
+  mother_pic varchar2(200) ,
+  guardian_pic varchar2(200) ,
+  is_enroll number ,
+  previous_school varchar(255) ,
+  height varchar2(100) ,
+  weight varchar2(100) ,
+  note varchar2(200) ,
+  measurement_date date ,
+  app_key varchar(255) ,
+  document varchar(255) ,
+  disable_at date ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE payment_settings (
+  id number ,
+  payment_type varchar2(200) ,
+  api_username varchar2(200) ,
+  api_secret_key varchar2(200) ,
+  salt varchar2(200) ,
+  api_publishable_key varchar2(200) ,
+  api_password varchar2(200) ,
+  api_signature varchar2(200) ,
+  api_email varchar2(200) ,
+  paypal_demo varchar2(100) ,
+  account_no varchar2(200) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE payslip_allowance (
+  id number ,
+  payslip_id number ,
+  allowance_type varchar2(200) ,
+  amount number ,
+  staff_id number ,
+  cal_type varchar2(100) 
+) ;
+
+CREATE TABLE permission_category (
+  id number ,
+  perm_group_id number ,
+  name varchar2(100) ,
+  short_code varchar2(100) ,
+  enable_view number ,
+  enable_add number ,
+  enable_edit number ,
+  enable_delete number ,
+  created_at date
+) ;
+
+CREATE TABLE permission_group (
+  id number ,
+  name varchar2(100) ,
+  short_code varchar2(100) ,
+  is_active number ,
+  system number ,
+  created_at date
+) ;
+
+CREATE TABLE permission_parent (
+  id number ,
+  group_id number ,
+  name varchar2(100) ,
+  short_code varchar2(100) ,
+  is_active number ,
+  system number ,
+  created_at date
+) ;
+
+
+CREATE TABLE permission_student (
+  id number ,
+  name varchar2(100) ,
+  short_code varchar2(100) ,
+  is_active number ,
+  system number ,
+  group_id number ,
+  created_at date
+) ;
+
+CREATE TABLE question (
+  id number ,
+  subject_id number ,
+  question varchar(255)  ,
+  type number(1) ,
+  created_at date
+) ;
+
+CREATE TABLE questions (
+  id number ,
+  subject_id number ,
+  question varchar(255) ,
+  opt_a varchar(255) ,
+  opt_b varchar(255) ,
+  opt_c varchar(255) ,
+  opt_d varchar(255) ,
+  opt_e varchar(255) ,
+  correct varchar(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE question_answers (
+  id number ,
+  question_id number ,
+  option_id number ,
+  created_at date
+) ;
+
+CREATE TABLE question_options (
+  id number ,
+  question_id number ,
+  ques_option varchar2(255)  , /*option changed to ques_option*/
+  created_at date
+) ;
+
+CREATE TABLE read_notification (
+  id number ,
+  student_id number ,
+  parent_id number(10) ,
+  staff_id number ,
+  notification_id number ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE reference (
+  id number ,
+  reference varchar2(100) ,
+  description varchar2(255) 
+) ;
+
+CREATE TABLE roles (
+  id number ,
+  name varchar2(100) ,
+  slug varchar2(150) ,
+  is_active number ,
+  is_system number(1)  ,
+  is_superadmin number  ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE roles_permissions (
+  id number ,
+  role_id number ,
+  perm_cat_id number ,
+  can_view number ,
+  can_add number ,
+  can_edit number ,
+  can_delete number ,
+  created_at date
+) ;
+
+CREATE TABLE room_types (
+  id number ,
+  room_type varchar2(200) ,
+  description varchar(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE school_houses (
+  id number ,
+  house_name varchar2(200) ,
+  description varchar2(400) ,
+  is_active varchar2(50) 
+) ;
+
+CREATE TABLE sch_settings (
+  id number ,
+  name varchar2(100) ,
+  biometric number ,
+  biometric_device varchar(255) ,
+  email varchar2(100) ,
+  phone varchar2(50) ,
+  address varchar(255) ,
+  lang_id number ,
+  languages varchar2(500) ,
+  dise_code varchar2(50) ,
+  date_format varchar2(50) ,
+  time_format varchar2(255) ,
+  currency varchar2(50) ,
+  currency_symbol varchar2(50) ,
+  is_rtl varchar2(10) ,
+  is_duplicate_fees_invoice number(1) ,
+  timezone varchar2(30) ,
+  session_id number ,
+  cron_secret_key varchar2(100) ,
+  currency_place varchar2(50)  ,
+  class_teacher varchar2(100) ,
+  start_month varchar2(40) ,
+  attendence_type number(10)  ,
+  image varchar2(100) ,
+  admin_logo varchar2(255) ,
+  admin_small_logo varchar2(255) ,
+  theme varchar2(200)  ,
+  fee_due_days number(3) ,
+  adm_auto_insert number(1)  ,
+  adm_prefix varchar2(50) ,
+  adm_start_from varchar2(11) ,
+  adm_no_digit number(10)  ,
+  adm_update_status number  ,
+  staffid_auto_insert number  ,
+  staffid_prefix varchar2(100)  ,
+  staffid_start_from varchar2(50) ,
+  staffid_no_digit number ,
+  staffid_update_status number  ,
+  is_active varchar2(255) ,
+  online_admission number(1) ,
+  is_blood_group number(10)  ,
+  is_student_house number(10)  ,
+  roll_no number  ,
+  category number ,
+  religion number  ,
+  cast number  ,
+  mobile_no number  ,
+  student_email number  ,
+  admission_date number  ,
+  lastname number ,
+  student_photo number  ,
+  student_height number  ,
+  student_weight number  ,
+  measurement_date number  ,
+  father_name number  ,
+  father_phone number  ,
+  father_occupation number  ,
+  father_pic number  ,
+  mother_name number  ,
+  mother_phone number  ,
+  mother_occupation number  ,
+  mother_pic number  ,
+  guardian_relation number  ,
+  guardian_email number  ,
+  guardian_pic number  ,
+  guardian_address number  ,
+  current_address number  ,
+  permanent_address number  ,
+  route_list number  ,
+  hostel_id number  ,
+  bank_account_no number  ,
+  national_identification_no number  ,
+  local_identification_no number  ,
+  rte number  ,
+  previous_school_details number  ,
+  student_note number  ,
+  upload_documents number  ,
+  staff_designation number  ,
+  staff_department number  ,
+  staff_last_name number  ,
+  staff_father_name number  ,
+  staff_mother_name number  ,
+  staff_date_of_joining number  ,
+  staff_phone number  ,
+  staff_emergency_contact number  ,
+  staff_marital_status number  ,
+  staff_photo number  ,
+  staff_current_address number  ,
+  staff_permanent_address number  ,
+  staff_qualification number  ,
+  staff_work_experience number  ,
+  staff_note number  ,
+  staff_epf_no number  ,
+  staff_basic_salary number  ,
+  staff_contract_type number  ,
+  staff_work_shift number  ,
+  staff_work_location number  ,
+  staff_leaves number  ,
+  staff_account_details number  ,
+  staff_social_media number  ,
+  staff_upload_documents number  ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE sections (
+  id number ,
+  section varchar2(60) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE send_notification (
+  id number ,
+  title varchar2(50) ,
+  publish_date date ,
+  active_start_date date , /*date changed to active_start_date*/
+  message varchar2(255) ,
+  visible_student varchar2(10)  ,
+  visible_staff varchar2(10)  ,
+  visible_parent varchar2(10)  ,
+  created_by varchar2(60) ,
+  created_id number ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE sessions (
+  id number ,
+  sessions varchar2(60) , /*session changed to sessions*/
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE sms_config (
+  id number ,
+  type varchar2(50) ,
+  name varchar2(100) ,
+  api_id varchar2(100) ,
+  authkey varchar2(100) ,
+  senderid varchar2(100) ,
+  contact varchar(255) ,
+  username varchar2(150) ,
+  url varchar2(150) ,
+  password varchar2(150) ,
+  is_active varchar2(255),
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE source (
+  id number ,
+  source varchar2(100) ,
+  description varchar2(255) 
+) ;
+
+CREATE TABLE staff (
+  id number ,
+  employee_id varchar2(200) ,
+  lang_id number ,
+  department number ,
+  designation number ,
+  qualification varchar2(200) ,
+  work_exp varchar2(200) ,
+  name varchar2(200) ,
+  surname varchar2(200) ,
+  father_name varchar2(200) ,
+  mother_name varchar2(200) ,
+  contact_no varchar2(200) ,
+  emergency_contact_no varchar2(200) ,
+  email varchar2(200) ,
+  dob date ,
+  marital_status varchar2(100) ,
+  date_of_joining date ,
+  date_of_leaving date ,
+  local_address varchar2(300) ,
+  permanent_address varchar2(200) ,
+  note varchar2(200) ,
+  image varchar2(200) ,
+  password varchar2(250) ,
+  gender varchar2(50) ,
+  account_title varchar2(200) ,
+  bank_account_no varchar2(200) ,
+  bank_name varchar2(200) ,
+  ifsc_code varchar2(200) ,
+  bank_branch varchar2(100) ,
+  payscale varchar2(200) ,
+  basic_salary varchar2(200) ,
+  epf_no varchar2(200) ,
+  contract_type varchar2(100) ,
+  shift varchar2(100) ,
+  location varchar2(100) ,
+  facebook varchar2(200) ,
+  twitter varchar2(200) ,
+  linkedin varchar2(200) ,
+  instagram varchar2(200) ,
+  resume varchar2(200) ,
+  joining_letter varchar2(200) ,
+  resignation_letter varchar2(200) ,
+  other_document_name varchar2(200) ,
+  other_document_file varchar2(200) ,
+  user_id number ,
+  is_active number ,
+  verification_code varchar2(100) 
+) ;
+
+CREATE TABLE staff_attendance (
+  id number ,
+  active_start_date date ,  /*date changed to active_start_date*/
+  staff_id number ,
+  staff_attendance_type_id number ,
+  remarks varchar2(200) , /*remark changed to remaks*/
+  is_active number ,
+  created_at date ,
+  updated_at number 
+) ;
+
+CREATE TABLE staff_attendance_type (
+  id number ,
+  type varchar2(200) ,
+  key_value varchar2(200) ,
+  is_active varchar2(50) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE staff_designation (
+  id number ,
+  designation varchar2(200) ,
+  is_active varchar2(100) 
+) ;
+
+
+
+CREATE TABLE staff_leave_details (
+  id number ,
+  staff_id number ,
+  leave_type_id number ,
+  alloted_leave varchar2(100) 
+) ;
+
+
+CREATE TABLE staff_leave_request (
+  id number ,
+  staff_id number ,
+  leave_type_id number ,
+  leave_from date ,
+  leave_to date ,
+  leave_days number ,
+  employee_remark varchar2(200) ,
+  admin_remark varchar2(200) ,
+  status varchar2(100) ,
+  applied_by varchar2(200) ,
+  document_file varchar2(200) ,
+  active_start_date date /*date changed to active_start_date*/
+) ;
+
+
+CREATE TABLE staff_payroll (
+  id number ,
+  basic_salary number ,
+  pay_scale varchar2(200) ,
+  grade varchar2(50) ,
+  is_active varchar2(50) 
+) ;
+
+CREATE TABLE staff_payslip (
+  id number ,
+  staff_id number ,
+  basic number ,
+  total_allowance number ,
+  total_deduction number ,
+  leave_deduction number ,
+  tax varchar2(200) ,
+  net_salary number ,
+  status varchar2(100) ,
+  month varchar2(200) ,
+  year varchar2(200) ,
+  payment_mode varchar2(200) ,
+  payment_date date ,
+  remarks varchar2(200) /*remark changed to remarks*/
+) ;
+
+CREATE TABLE staff_rating (
+  id number ,
+  staff_id number ,
+  comments varchar(255)  , /*comment changed to comments */
+  rate number ,
+  user_id number ,
+  role varchar2(255)  ,
+  status number ,
+  entrydt date
+) ;
+
+CREATE TABLE staff_roles (
+  id number ,
+  role_id number ,
+  staff_id number ,
+  is_active number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE staff_timeline (
+  id number ,
+  staff_id number ,
+  title varchar2(200) ,
+  timeline_date date ,
+  description varchar2(300) ,
+  document varchar2(200) ,
+  status varchar2(200) ,
+  active_start_date date  /*date changed to active_start_date*/
+) ;
+
+CREATE TABLE students (
+  id number ,
+  parent_id number ,
+  admission_no varchar2(100) ,
+  roll_no varchar2(100) ,
+  admission_date date ,
+  firstname varchar2(100) ,
+  lastname varchar2(100) ,
+  rte varchar2(20) ,
+  image varchar2(100) ,
+  mobileno varchar2(100) ,
+  email varchar2(100) ,
+  state varchar2(100) ,
+  city varchar2(100) ,
+  pincode varchar2(100) ,
+  religion varchar2(100) ,
+  cast varchar2(50) ,
+  dob date ,
+  gender varchar2(100) ,
+  current_address varchar(255) ,
+  permanent_address varchar(255) ,
+  category_id varchar2(100) ,
+  route_id number ,
+  school_house_id number ,
+  blood_group varchar2(200) ,
+  vehroute_id number ,
+  hostel_room_id number ,
+  adhar_no varchar2(100) ,
+  samagra_id varchar2(100) ,
+  bank_account_no varchar2(100) ,
+  bank_name varchar2(100) ,
+  ifsc_code varchar2(100) ,
+  guardian_is varchar2(100) ,
+  father_name varchar2(100) ,
+  father_phone varchar2(100) ,
+  father_occupation varchar2(100) ,
+  mother_name varchar2(100) ,
+  mother_phone varchar2(100) ,
+  mother_occupation varchar2(100) ,
+  guardian_name varchar2(100) ,
+  guardian_relation varchar2(100) ,
+  guardian_phone varchar2(100) ,
+  guardian_occupation varchar2(150) ,
+  guardian_address varchar(255) ,
+  guardian_email varchar2(100) ,
+  father_pic varchar2(200) ,
+  mother_pic varchar2(200) ,
+  guardian_pic varchar2(200) ,
+  is_active varchar2(255) ,
+  previous_school varchar(255) ,
+  height varchar2(100) ,
+  weight varchar2(100) ,
+  measurement_date date ,
+  dis_reason number ,
+  note varchar2(200) ,
+  dis_note varchar(255) ,
+  app_key varchar(255) ,
+  batch_id number ,
+  disable_at date ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE student_applyleave (
+  id number ,
+  student_session_id number ,
+  from_date date ,
+  to_date date ,
+  apply_date date ,
+  status number(1) ,
+  created_at date,
+  docs varchar2(255) ,
+  reason varchar2(255) ,
+  approve_by number ,
+  request_type number 
+) ;
+
+CREATE TABLE student_attendences (
+  id number ,
+  student_session_id number ,
+  biometric_attendence number(1)  ,
+  active_start_date date , /*date changed to active_start_date*/
+  attendence_type_id number ,
+  remarks varchar2(200) ,  /*remark changed to remarks*/
+  biometric_device_data varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE student_doc (
+  id number ,
+  student_id number ,
+  title varchar2(200) ,
+  doc varchar2(200) 
+) ;
+
+CREATE TABLE student_fees (
+  id number ,
+  student_session_id number ,
+  feemaster_id number ,
+  amount float ,
+  amount_discount float ,
+  amount_fine float,
+  description varchar(255) ,
+  active_start_date date , /*date changed to active_start_date*/
+  payment_mode varchar2(50) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE student_fees_deposite (
+  id number ,
+  student_fees_master_id number ,
+  fee_groups_feetype_id number ,
+  amount_detail varchar(255) ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE student_fees_discounts (
+  id number ,
+  student_session_id number ,
+  fees_discount_id number ,
+  status varchar2(20),
+  payment_id varchar2(50) ,
+  description varchar(255) ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE student_fees_master (
+  id number ,
+  is_system number(1)  ,
+  student_session_id number ,
+  fee_session_group_id number ,
+  amount float,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+CREATE TABLE student_session (
+  id number ,
+  session_id number ,
+  student_id number ,
+  class_id number ,
+  section_id number ,
+  route_id number ,
+  hostel_room_id number ,
+  vehroute_id number(10) ,
+  transport_fees float,
+  fees_discount float,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE student_sibling (
+  id number ,
+  student_id number ,
+  sibling_student_id number ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+
+CREATE TABLE student_subject_attendances (
+  id number ,
+  student_session_id number ,
+  subject_timetable_id number ,
+  attendence_type_id number ,
+  active_start_date date , /*date changed to active_start_date*/
+  remarks varchar(255)  ,  /*remark changed to remarks*/
+  created_at date
+) ;
+
+CREATE TABLE student_subject_groups (
+  id number ,
+  student_session_id number ,
+  subject_group_id number ,
+  is_active varchar2(10)  ,
+  created_at date
+) ;
+
+
+CREATE TABLE student_timeline (
+  id number ,
+  student_id number ,
+  title varchar2(200) ,
+  timeline_date date ,
+  description varchar2(200) ,
+  document varchar2(200) ,
+  status varchar2(200) ,
+  active_start_date date /*date changed to active_start_date*/
+) ;
+
+CREATE TABLE student_transport_fees_delete (
+  id number ,
+  student_session_id number ,
+  amount float ,
+  amount_discount float ,
+  amount_fine float,
+  description varchar(255) ,
+  active_start_date date , /*date changed to active_start_date*/
+  is_active varchar2(255) ,
+  payment_mode varchar2(50) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE subjects (
+  id number ,
+  name varchar2(100) ,
+  code varchar2(100) ,
+  type varchar2(100) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE subject_groups (
+  id number ,
+  name varchar2(250)  ,
+  description varchar(255)  ,
+  session_id number ,
+  created_at date
+) ;
+
+CREATE TABLE subject_group_class_sections (
+  id number ,
+  subject_group_id number ,
+  class_section_id number ,
+  session_id number ,
+  description varchar(255) ,
+  is_active number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE subject_group_subjects (
+  id number ,
+  subject_group_id number ,
+  session_id number ,
+  subject_id number ,
+  created_at date
+) ;
+
+CREATE TABLE subject_timetable (
+  id number ,
+  day varchar2(20)  ,
+  class_id number ,
+  section_id number ,
+  subject_group_id number ,
+  subject_group_subject_id number ,
+  staff_id number ,
+  time_from varchar2(20)  ,
+  time_to varchar2(20)  ,
+  room_no varchar2(20)  ,
+  session_id number ,
+  created_at date
+) ;
+
+CREATE TABLE submit_assignment (
+  id number ,
+  homework_id number ,
+  student_id number ,
+  message varchar(255) ,
+  docs varchar2(225) ,
+  created_at date
+) ;
+
+CREATE TABLE teacher_subjects (
+  id number ,
+  session_id number ,
+  class_section_id number ,
+  subject_id number ,
+  teacher_id number ,
+  description varchar2(100) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE template_admitcards (
+  id number ,
+  template varchar2(250) ,
+  heading varchar(255) ,
+  title varchar(255) ,
+  left_logo varchar2(200) ,
+  right_logo varchar2(200) ,
+  exam_name varchar2(200) ,
+  school_name varchar2(200) ,
+  exam_center varchar2(200) ,
+  sign varchar2(200) ,
+  background_img varchar2(200) ,
+  is_name number(1)  ,
+  is_father_name number(1)  ,
+  is_mother_name number(1)  ,
+  is_dob number(1)  ,
+  is_admission_no number(1)  ,
+  is_roll_no number(1)  ,
+  is_address number(1)  ,
+  is_gender number(1)  ,
+  is_photo number ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE template_marksheets (
+  id number ,
+  template varchar2(200) ,
+  heading varchar2(255) ,
+  title varchar2(255) ,
+  left_logo varchar2(200) ,
+  right_logo varchar2(200) ,
+  exam_name varchar2(200) ,
+  school_name varchar2(200) ,
+  exam_center varchar2(200) ,
+  left_sign varchar2(200) ,
+  middle_sign varchar2(200) ,
+  right_sign varchar2(200) ,
+  exam_session number(1) ,
+  is_name number(1) ,
+  is_father_name number(1) ,
+  is_mother_name number(1) ,
+  is_dob number(1) ,
+  is_admission_no number(1) ,
+  is_roll_no number(1) ,
+  is_photo number ,
+  is_division number(1)  ,
+  is_customfield number(1) ,
+  background_img varchar2(200) ,
+  created_at date,
+  updated_at date ,
+  active_start_date varchar2(20)   /*date changed to active_start_date*/
+) ;
+
+CREATE TABLE timetables (
+  id number ,
+  teacher_subject_id number(20) ,
+  day_name varchar2(50) ,
+  start_time varchar2(50) ,
+  end_time varchar2(50) ,
+  room_no varchar2(50) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE transport_route (
+  id number ,
+  route_title varchar2(100) ,
+  no_of_vehicle number ,
+  fare float ,
+  note varchar(255) ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+
+CREATE TABLE userlog (
+  id number ,
+  users varchar2(100) ,  /*user changed to users*/
+  roles varchar2(100) ,  /*role changed to roles*/
+  ipaddress varchar2(100) ,
+  user_agent varchar2(500) ,
+  login_date date
+) ;
+
+CREATE TABLE users (
+  id number ,
+  user_id number(10) ,
+  username varchar2(50) ,
+  password varchar2(50) ,
+  childs varchar(255) ,
+  roles varchar2(30) , /*role changed to roles*/
+  verification_code varchar2(200) ,
+  lang_id number ,
+  is_active varchar2(255) ,
+  created_at date,
+  updated_at date 
+) ;
+
+CREATE TABLE vehicles (
+  id number(10)  ,
+  vehicle_no varchar2(20) ,
+  vehicle_model varchar2(100),
+  manufacture_year varchar2(4) ,
+  driver_name varchar2(50) ,
+  driver_licence varchar2(50),
+  driver_contact varchar2(20) ,
+  note varchar(255) ,
+  created_at date
+) ;
+
+CREATE TABLE vehicle_routes (
+  id number ,
+  route_id number ,
+  vehicle_id number ,
+  created_at date
+) ;
+
+
+CREATE TABLE visitors_book (
+  id number ,
+  source varchar2(100) ,
+  purpose varchar2(20) ,
+  name varchar2(100) ,
+  email varchar2(100) ,
+  contact varchar2(12) ,
+  id_proof varchar2(50) ,
+  no_of_pepple number ,
+  active_start_date date , /*date changed to active_start_date*/
+  in_time varchar2(20) ,
+  out_time varchar2(20) ,
+  note varchar2(255) ,
+  image varchar2(100) 
+) ;
+
+CREATE TABLE visitors_purpose (
+  id number ,
+  visitors_purpose varchar2(100) ,
+  description varchar2(255) 
+) ;

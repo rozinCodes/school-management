@@ -1,0 +1,28 @@
+{
+  "name": "openvidu_react_native",
+  "version": "2.13.0",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "openvidu-browser": "2.14.0",
+    "react": "16.13.1",
+    "react-native": "0.62.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.6",
+    "@babel/runtime": "7.8.4",
+    "@react-native-community/eslint-config": "0.0.7",
+    "babel-jest": "25.1.0",
+    "jest": "25.1.0",
+    "metro-react-native-babel-preset": "0.58.0",
+    "react-test-renderer": "16.13.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

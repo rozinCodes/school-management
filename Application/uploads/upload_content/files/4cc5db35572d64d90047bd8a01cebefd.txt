@@ -1,0 +1,6 @@
+exam_group_class_batch_exam_students changed to EXAM_G_C_BATCH_E_STUDENTS
+exam_group_class_batch_exam_subjects CHANGED TO EXAM_G_C_BATCH_E_SUBJECTS(exam_group_class_batch_exams_id->EXAM_G_C_EXAMS_ID)
+exam_group_exam_connections changed to EXAM_G_E_CONNECTIONS(exam_group_class_batch_exams_id->EXAM_G_C_BATCH_EXAMS_ID)
+exam_group_exam_results changed to EXAM_G_E_RESULTS(exam_group_class_batch_exam_student_id->EXAM_G_C_BATCH_STUDENT_ID,  exam_group_class_batch_exam_subject_id->EXAM_G_C_BATCH_EXAM_SUBJECT_ID)
+  
+
